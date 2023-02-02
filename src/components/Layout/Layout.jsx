@@ -1,9 +1,18 @@
-
+import { StyledLink } from "./Layout.styled"
 export const Layout = () => {
     return (
-       < div display="grid" gridTemplateColumns="200px 1fr">
-           <div>Home</div>
-           <div>Ivents</div>
-       </div>
-    )
+       <header>
+       <nav>
+        <ul>
+            <li>
+                <StyledLink to="/">Home</StyledLink>
+            </li>
+            <li>
+            <StyledLink to="events">Events</StyledLink>
+            </li>
+        </ul>
+       </nav>
+           
+       </header>
+    );
 }
