@@ -1,4 +1,6 @@
 import { StyledLink } from "./Layout.styled"
+import { Outlet } from "react-router-dom";
+
 export const Layout = () => {
     return (
        <header>
@@ -12,7 +14,7 @@ export const Layout = () => {
             </li>
         </ul>
        </nav>
-           
+       <Outlet />           
        </header>
     );
 }
