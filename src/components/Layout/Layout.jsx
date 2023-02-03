@@ -10,7 +10,7 @@ export const Layout = () => {
             <StyledLink to="/">Home</StyledLink>
           </li>
           <li>
-            <StyledLink to="movies">Events</StyledLink>
+            <StyledLink to="events">Events</StyledLink>
           </li>
         </ul>
       </nav>

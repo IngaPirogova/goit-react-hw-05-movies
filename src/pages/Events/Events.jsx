@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import fetchEvents from 'services/api';
+import { fetchEvents } from 'services/api';
 
 export default function Events() {
   const [events, setEvents] = useState([]);
@@ -15,7 +15,7 @@ export default function Events() {
     <ul>
       {events.map(event => (
         <li key={event.id}>
-          <Link to={event.name}></Link>
+          <Link to={event.id}>{event.name}</Link>
         </li>
       ))}
     </ul>
