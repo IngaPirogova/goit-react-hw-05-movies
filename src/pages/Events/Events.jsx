@@ -1,20 +1,25 @@
-import { useEffect, useState } from "react";
-import  fetchEvents from "services/api";
+import { useEffect, useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import fetchEvents from 'services/api';
 
 export default function Events() {
-    const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([]);
 
-    useEffect(() => {
-        fetchEvents().then(setEvents);
-    }, []);
-    console.log(events);
+  useEffect(() => {
+    fetchEvents().then(setEvents);
+  }, []);
+  console.log(events);
 
-    return (
-<ul>
-    {/* {events.map(event => (
-        <li></li> */}
-    {/* ) )}     */}
-    
-</ul>
-    )
+  return (
+    <>
+    <ul>
+      {events.map(event => (
+        <li key={event.id}>
+          <Link to={event.name}></Link>
+        </li>
+      ))}
+    </ul>
+    <Outlet />
+    </>
+  );
 }
