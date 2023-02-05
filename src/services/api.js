@@ -1,3 +1,38 @@
+import axios from "axios";
+
+const API_KEY = '645002417e61fac3d7b9bfd937ca50a9';
+const BASE_URL = `https://api.themoviedb.org/3/`;
+
+export async function fetchTrandingMovies() {
+    try{
+        const res = await axios.get(`${BASE_URL}trending/all/day?api_key=${API_KEY}`);
+    return res.data.results;
+     
+    } catch (error) {
+        console.log(error);
+    }  
+}
+
+
+// const BASE_URL = `https://pixabay.com/api/`;
+// const API_KEY = '31233349-657dbeb08b09bae80b555b3c4';
+// const OTHER_PARAMS = '&image_type=photo&orientation=horizontal&per_page=12'
+
+// export async function fetchResponce(searchName, page) {
+//     try {
+       
+//         const URL = `${BASE_URL}?q=${searchName}&page=${page}&key=${API_KEY}${OTHER_PARAMS}`;
+//         const response = await axios.get(URL);
+//         return response.data;              
+        
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// export const api = { fetchResponce };
+
+
 
 
 //key 645002417e61fac3d7b9bfd937ca50a9
@@ -9,10 +44,20 @@
 
 
 
+// https://api.themoviedb.org/3/trending/all/day?api_key=<<api_key>> 
+///trending/get-trending список самых популярных фильмов на сегодня для создания коллекции на главной странице.
 
+// https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false 
+///search/search-movies поиск кинофильма по ключевому слову на странице фильмов.
 
+// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US  
+// /movies/get-movie-details запрос полной информации о фильме для страницы кинофильма.
 
+// https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+///movies/get-movie-credits запрос информации о актёрском составе для страницы кинофильма.
 
+// https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
+///movies/get-movie-reviews запрос обзоров для страницы кинофильма.
 
 
 
