@@ -15,7 +15,7 @@ export async function fetchTrandingMovies() {
 
 export async function fetchMovieById(id) {
     try{
-        const res = await axios.get(`${BASE_URL}movie/${id}?api_key${API_KEY}`);
+        const res = await axios.get(`${BASE_URL}movie/${id}?api_key=${API_KEY}&language=en-US `);
     return res.data;
      
     } catch (error) {
