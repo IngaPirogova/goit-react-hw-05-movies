@@ -1,7 +1,7 @@
 export const Home = () => {
     return (
-        <>
-        <p>test</p>
-        </>
+       
+        <h1>test</h1>
+       
     )
 }
