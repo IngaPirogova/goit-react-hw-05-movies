@@ -7,8 +7,8 @@ export const MovieDetails = () => {
     movie && (
         <div>
         <h2>{movie.title}</h2>
-        <img src={movie.poster} alt={movie.title} />
-              
+        <img src={movie.poster_path} alt={movie.title} />
+
     
         </div>
     )
