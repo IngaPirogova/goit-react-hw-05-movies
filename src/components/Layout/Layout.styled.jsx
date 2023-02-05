@@ -9,3 +9,7 @@ export const StyledLink = styled(NavLink)`
         color: red;
     }
 `;
+
+export const HeaderLink = styled.li`
+    list-style: none;
+`;

@@ -13,6 +13,20 @@ export async function fetchTrandingMovies() {
     }  
 }
 
+export async function fetchMovieById(id) {
+    try{
+        const res = await axios.get(`${BASE_URL}movie/${id}?api_key${API_KEY}`);
+    return res.data;
+     
+    } catch (error) {
+        console.log(error);
+    }  
+}
+
+
+
+// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US  
+
 
 // const BASE_URL = `https://pixabay.com/api/`;
 // const API_KEY = '31233349-657dbeb08b09bae80b555b3c4';

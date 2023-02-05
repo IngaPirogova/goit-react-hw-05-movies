@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchTrandingMovies } from "services/api";
 import { Link, Outlet } from "react-router-dom";
+import { MovieItem } from "./Movies.styled";
 
 
 export const Movies = () => {
@@ -15,10 +16,10 @@ export const Movies = () => {
         <>
         <ul>
             {movies.map(({id, title, name}) => (
-                <li key={id}>
+                <MovieItem key={id}>
                     <Link to={id}>{title}</Link>
                     <Link to={id}>{name}</Link>
-            </li>
+                </MovieItem>
             ))}
         </ul>
         <Outlet />
