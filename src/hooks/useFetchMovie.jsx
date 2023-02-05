@@ -10,5 +10,5 @@ export const useFetchMovie = () => {
     useEffect(() => {
         fetchMovieById(movieId).then(setMovie);
     }, [movieId])
-    return movie;
+     return movie;
 };

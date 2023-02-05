@@ -25,7 +25,6 @@ export async function fetchMovieById(id) {
 
 
 
-// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US  
 
 
 // const BASE_URL = `https://pixabay.com/api/`;
