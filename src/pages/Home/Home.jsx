@@ -15,9 +15,14 @@ export const Home = () => {
     <>
     <h2>Trending today</h2>
       <ul>
-        {movies.map(({ id, title, name }) => (
+        {movies.map(({ id, title, name, poster }) => (
           <li key={id}>
-            <Link to={`/movies/${id}`}>{title}{name}</Link>                      
+            <Link to={`/movies/${id}`}>{title}{name}
+            <img src={poster} alt={title} />  
+            <title>
+                <h3>{title}</h3>
+            </title>  
+            </Link>                  
           </li>
         ))}
       </ul>
