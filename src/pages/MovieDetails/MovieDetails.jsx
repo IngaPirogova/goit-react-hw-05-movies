@@ -1,10 +1,8 @@
-import { useFetchMovie } from "hooks/useFetchMovie"
+import { useFetchMovie } from 'hooks/useFetchMovie';
 
 export const MovieDetails = () => {
-const movie = useFetchMovie();
-console.log(movie);
+  const movie = useFetchMovie();
+  console.log(movie);
 
-    return <div>Details</div>
-    
-    
-}
+  return <div>Details</div>;
+};
