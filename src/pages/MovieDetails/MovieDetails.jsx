@@ -1,6 +1,7 @@
 import { useFetchMovie } from 'hooks/useFetchMovie';
 import { useLocation, useNavigate } from 'react-router-dom';
-  import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { ContainerMovieDetails, BtnGoBack, InfoList, AddInfo, MovieInfo, HrMovieDetails, AddInfoLink, AddInfoItem} from './MovieDetails.styled';
 
 export const MovieDetails = () => {
   const movie = useFetchMovie();
@@ -8,43 +9,57 @@ export const MovieDetails = () => {
   const navigate = useNavigate();
   return (
     movie && (
-        <>
-      <div>
-        <button 
-        type='button'
-        onClick={() => navigate(location?.state?.from ?? '/')}
-        >Go back
-        </button>
-        <h2>{movie.title} ({movie.release_date})</h2>
-        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={'240px'} alt="" />
-       
-        <p>Overview</p>
-        <p>{movie.overview}</p>
-        <p>User Score: {movie.vote_average * 10}%</p>
-        <p>Genres</p>
-        <p> {movie.genres.map(({name}) => name).join(' ')}</p>
-      </div>  
+      <>
+      <BtnGoBack
+              type="button"
+              onClick={() => navigate(location?.state?.from ?? '/')}
+            >
+              Go back
+            </BtnGoBack>
+        <ContainerMovieDetails>
+          <div>
+             <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              width={'340px'}
+              alt=""
+            />
+            </div>
+            <MovieInfo>
+            <h2>
+              {movie.title} ({movie.release_date})
+            </h2>
+            <h3>Overview</h3>
+            <p>{movie.overview}</p>
+            <p>User Score: {movie.vote_average * 10}%</p>
+            <h3>Genres</h3>
+            <p> {movie.genres.map(({ name }) => name).join(' ')}</p>
+          </MovieInfo>
+          </ContainerMovieDetails>
+          <HrMovieDetails />
+          <div>
+            <AddInfo>Additional information</AddInfo>
+            <InfoList>
+            <AddInfoItem>
+                <AddInfoLink to="cast" state={{ from: location?.state?.from ?? '/' }}>
+                  Cast
+                </AddInfoLink>
+              </AddInfoItem>
 
-      
+              <AddInfoItem>
+                <AddInfoLink
+                  to="reviews"
+                  state={{ from: location?.state?.from ?? '/' }}
+                >
+                  Reviews
+                </AddInfoLink>
+              </AddInfoItem>
+            </InfoList>
+          </div>
 
-      <hr />      
-      <div>
-      <p>Additional information</p>
-        <ul>
-          <li>
-            <Link to="cast" state={{ from: location?.state?.from ?? '/' }}>Cast</Link>
-          </li>
+          <HrMovieDetails />
         
-      
-          <li>
-            <Link to="reviews" state= {{from: location?.state?.from ?? '/'}}>Reviews</Link>
-          </li>
-        </ul>
-      </div>
-      <hr />
-      <Outlet />
+        <Outlet />
       </>
-        
-    )    
+    )
   );
 };
