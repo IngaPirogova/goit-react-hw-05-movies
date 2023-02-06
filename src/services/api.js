@@ -23,6 +23,28 @@ export async function fetchMovieById(id) {
     }  
 }
 
+export async function fetchMovieCastById(id) {
+    try{
+        const res = await axios.get(`${BASE_URL}movie/${id}/credits?api_key=${API_KEY}&language=en-US `);
+    return res.data;
+     
+    } catch (error) {
+        console.log(error);
+    }  
+}
+
+export async function fetchMovieReviewById(id) {
+    try{
+        const res = await axios.get(`${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
+    return res.data.results;
+     
+    } catch (error) {
+        console.log(error);
+    }  
+}
+
+
+// https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
 
 
 
