@@ -5,7 +5,7 @@ import { searchMoviesFetch } from 'services/api';
 import { SearchInput, SearchList, SearchLink } from './Movies.styled';
 import toast, { Toaster } from 'react-hot-toast';
 
-export const Movies = () => {
+export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [name, setName] = useState('');

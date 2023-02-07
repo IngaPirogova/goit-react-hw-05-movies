@@ -3,7 +3,7 @@ import { fetchTrandingMovies } from 'services/api';
 import { Outlet } from 'react-router-dom';
 import { HomeList, HomeLink } from './Home.styled';
 
-export const Home = () => {
+export default function Home() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {

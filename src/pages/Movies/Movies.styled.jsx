@@ -22,6 +22,7 @@ export const SearchList = styled.ul`
 
 export const SearchLink = styled(Link)`
   text-decoration: none;
+  color: black;
 
   &:hover {
     color: tomato;

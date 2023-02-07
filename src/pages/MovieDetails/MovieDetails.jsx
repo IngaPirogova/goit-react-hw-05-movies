@@ -12,10 +12,12 @@ import {
   AddInfoItem,
 } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
+export default function MovieDetails() {
   const movie = useFetchMovie();
   const location = useLocation();
   const navigate = useNavigate();
+ 
+  
   return (
     movie && (
       <>
@@ -35,11 +37,11 @@ export const MovieDetails = () => {
           </div>
           <MovieInfo>
             <h2>
-              {movie.title} ({movie.release_date})
+              {movie.title} ({ new Date(movie.release_date).getFullYear() })
             </h2>
             <h3>Overview</h3>
             <p>{movie.overview}</p>
-            <p>User Score: {movie.vote_average * 10}%</p>
+            <p>User Score: {Math.round(movie.vote_average * 10)}%</p>
             <h3>Genres</h3>
             <p> {movie.genres.map(({ name }) => name).join(' ')}</p>
           </MovieInfo>

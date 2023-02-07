@@ -7,6 +7,7 @@ export const HomeList = styled.ul`
 
 export const HomeLink = styled(Link)`
   text-decoration: none;
+  color: black;
 
   &:hover {
     color: tomato;
