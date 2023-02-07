@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { fetchTrandingMovies } from "services/api";
-import { Link, Outlet } from "react-router-dom";
-
+import { useState, useEffect } from 'react';
+import { fetchTrandingMovies } from 'services/api';
+import { Outlet } from 'react-router-dom';
+import { HomeList, HomeLink } from './Home.styled';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -13,20 +13,18 @@ export const Home = () => {
   console.log(movies);
   return (
     <>
-    <h2>Trending today</h2>
-      <ul>
-        {movies.map(({ id, title, name, poster }) => (
+      <h2 style={{ marginLeft: '20px' }}>Trending today</h2>
+      <HomeList>
+        {movies.map(({ id, title, name }) => (
           <li key={id}>
-            <Link to={`/movies/${id}`}>{title}{name}
-            <img src={poster} alt={title} />  
-            <title>
-                <h3>{title}</h3>
-            </title>  
-            </Link>                  
+            <HomeLink to={`/movies/${id}`}>
+              {name}
+              <p>{title}</p>
+            </HomeLink>
           </li>
         ))}
-      </ul>
+      </HomeList>
       <Outlet />
-      </>
+    </>
   );
 };

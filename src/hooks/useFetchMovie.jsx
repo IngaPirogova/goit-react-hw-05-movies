@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
-import { fetchMovieById } from "services/api";
-
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchMovieById } from 'services/api';
 
 export const useFetchMovie = () => {
-    const [movie, setMovie] = useState(null);
-    const { movieId } = useParams();
+  const [movie, setMovie] = useState(null);
+  const { movieId } = useParams();
 
-    useEffect(() => {
-        fetchMovieById(movieId).then(setMovie);
-    }, [movieId])
-     return movie;
+  useEffect(() => {
+    fetchMovieById(movieId).then(setMovie);
+  }, [movieId]);
+  return movie;
 };

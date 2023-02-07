@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const ContainerMovieDetails = styled.div`
   width: 600px;
@@ -39,25 +39,24 @@ export const MovieInfo = styled.div`
 `;
 
 export const HrMovieDetails = styled.hr`
-margin-left: 30px;
-width: 660px; 
+  margin-left: 30px;
+  width: 660px;
 `;
 
 export const AddInfoLink = styled(NavLink)`
   text-decoration: none;
   color: black;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 7px;
 
   &.active {
-    color: #e6880f;
-    font-weight: 700;
+    color: tomato;
+    font-weight: 600;
     transform: scale(1.1);
-  }  
+  }
 `;
 
 export const AddInfoItem = styled.li`
-    list-style: none;
+  list-style: none;
 `;
-
