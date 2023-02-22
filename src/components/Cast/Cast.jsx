@@ -6,16 +6,16 @@ const DEFAULT_FOTO =
   'https://vyshnevyi-partners.com/wp-content/uploads/2016/12/no-avatar-300x300.png';
 
 export const Cast = () => {
-  const { movieId } = useParams();
   const [credits, setCredits] = useState([]);
-  console.log(credits);
+  const { movieId } = useParams();  
+   console.log(credits);
 
   useEffect(() => {
     fetchMovieCastById(movieId).then(setCredits);
   }, [movieId]);
 
-  if (credits.length === 0) {
-    return <h3>There is no reviews</h3>;
+  if (credits.cast.length === 0) {
+    return <h3>There is no casts</h3>;
   } else {
     return (
       <div>
@@ -32,7 +32,6 @@ export const Cast = () => {
                 ) : (
                   <img src={DEFAULT_FOTO} alt={''} width={150} height={225} />
                 )}
-
                 <h3>{name}</h3>
                 <p>Character: {character}</p>
               </li>
