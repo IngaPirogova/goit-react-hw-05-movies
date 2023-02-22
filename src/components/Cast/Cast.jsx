@@ -14,27 +14,31 @@ export const Cast = () => {
     fetchMovieCastById(movieId).then(setCredits);
   }, [movieId]);
 
-  return (
-    <div>
-      <ul>
-        {credits.cast &&
-          credits.cast.map(({ id, character, name, profile_path }) => (
-            <li key={id}>
-              {profile_path ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${profile_path}`}
-                  width={150}
-                  alt={name}
-                />
-              ) : (
-                <img src={DEFAULT_FOTO} alt={''} width={150} height={225} />
-              )}
+  if (credits.length === 0) {
+    return <h3>There is no reviews</h3>;
+  } else {
+    return (
+      <div>
+        <ul>
+          {credits.cast &&
+            credits.cast.map(({ id, character, name, profile_path }) => (
+              <li key={id}>
+                {profile_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                    width={150}
+                    alt={name}
+                  />
+                ) : (
+                  <img src={DEFAULT_FOTO} alt={''} width={150} height={225} />
+                )}
 
-              <h3>{name}</h3>
-              <p>Character: {character}</p>
-            </li>
-          ))}
-      </ul>
-    </div>
-  );
+                <h3>{name}</h3>
+                <p>Character: {character}</p>
+              </li>
+            ))}
+        </ul>
+      </div>
+    );
+  }
 };

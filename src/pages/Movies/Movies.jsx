@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 // import { toast } from 'react-hot-toast';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { searchMoviesFetch } from 'services/api';
 import { SearchInput, SearchList, SearchLink } from './Movies.styled';
 import toast, { Toaster } from 'react-hot-toast';
@@ -9,8 +9,9 @@ export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [name, setName] = useState('');
+  const location = useLocation();
 
-  const searchQuery = searchParams.get('query') ?? '';
+  const searchQuery = searchParams.get('name');
 
   useEffect(() => {
     searchQuery && searchMoviesFetch(searchQuery).then(setMovies);
@@ -34,7 +35,7 @@ export default function Movies() {
 
     setMovies(response);
     setSearchParams(searchQuery !== '' ? { name } : {});
-    // setSearchParams({name});
+    //  setSearchParams({name});
 
     event.target.reset();
   };
@@ -53,7 +54,7 @@ export default function Movies() {
         <SearchList>
           {movies.map(({ id, title }) => (
             <li key={id}>
-              <SearchLink to={`/movies/${id}`}>
+              <SearchLink to={`/movies/${id}`} state={{ from: location }}>
                 <p>{title}</p>
               </SearchLink>
             </li>
@@ -63,4 +64,4 @@ export default function Movies() {
       <Toaster autoClose={2000} />
     </div>
   );
-};
+}
