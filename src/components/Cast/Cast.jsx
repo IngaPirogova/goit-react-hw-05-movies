@@ -14,7 +14,7 @@ export const Cast = () => {
     fetchMovieCastById(movieId).then(setCredits);
   }, [movieId]);
 
-  if (credits.cast.length === 0) {
+  if (credits.length === 0) {
     return <h3>There is no casts</h3>;
   } else {
     return (
