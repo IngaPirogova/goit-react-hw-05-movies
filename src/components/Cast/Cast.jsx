@@ -20,8 +20,8 @@ export const Cast = () => {
     return (
       <div>
         <ul>
-          {credits.cast &&
-            credits.cast.map(({ id, character, name, profile_path }) => (
+          {credits.length > 0 &&
+            credits.map(({ id, character, name, profile_path }) => (
               <li key={id}>
                 {profile_path ? (
                   <img

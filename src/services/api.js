@@ -30,7 +30,7 @@ export async function fetchMovieCastById(id) {
     const res = await axios.get(
       `${BASE_URL}movie/${id}/credits?api_key=${API_KEY}&language=en-US `
     );
-    return res.data;
+    return res.data.cast;
   } catch (error) {
     console.log(error);
   }
